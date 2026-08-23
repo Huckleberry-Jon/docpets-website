@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DocPets | Coming Soon</title>
+    <meta name="description" content="DocPets — Their whole life. One place. A Doc Incorporated product coming soon.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            background: #050509;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.10),
+                    rgba(0, 0, 0, 0.35)
+                ),
+                url("docpets-background.jpg") center center / cover no-repeat;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .coming-soon {
+            width: 100%;
+            text-align: center;
+            padding: 55px 20px 35px;
+            background: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.82)
+            );
+        }
+
+        .coming-soon h1 {
+            font-size: clamp(32px, 7vw, 64px);
+            letter-spacing: 8px;
+            font-weight: 700;
+        }
+
+        .coming-soon p {
+            margin-top: 18px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            opacity: 0.75;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="coming-soon">
+        <h1>COMING SOON</h1>
+        <p>A DOC INCORPORATED PRODUCT</p>
+    </div>
+
+</body>
+</html>
