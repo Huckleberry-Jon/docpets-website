@@ -1,38 +1,285 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="./docpets-favicon.png?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DocPets | Coming Soon</title>
-    <meta name="description" content="DocPets — Their whole life. One place. A Doc Incorporated product coming soon.">
-
+    <link rel="icon" type="image/png" href="./docpets-favicon.png?v=4">
+    <link rel="canonical" href="https://getdocpets.com/">
+    <meta name="theme-color" content="#070817">
+    <meta name="description" content="DocPets is being built as one place for your pets' identities, care, records, reminders, and whole lives.">
+    <meta property="og:title" content="DocPets | Their whole life. One place.">
+    <meta property="og:description" content="A warmer, simpler home for every pet's identity, care, records, reminders, and whole story.">
+    <meta property="og:image" content="https://getdocpets.com/docpets.png">
+    <meta property="og:url" content="https://getdocpets.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DocPets | Their whole life. One place.">
+    <meta name="twitter:description" content="A warmer, simpler home for every pet's identity, care, records, reminders, and whole story.">
+    <meta name="twitter:image" content="https://getdocpets.com/docpets.png">
+    <title>DocPets | Their whole life. One place.</title>
     <style>
-        * {
+        :root {
+            color-scheme: dark;
+            --ink: #050509;
+            --night: #070817;
+            --panel: rgba(18, 17, 52, 0.72);
+            --white: #f8f8ff;
+            --muted: #aaa8c8;
+            --violet: #9a68e8;
+            --teal: #00c9c7;
+            --line: rgba(157, 112, 226, 0.22);
+            --max: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 12% 30%, rgba(99, 62, 184, 0.13), transparent 31%),
+                radial-gradient(circle at 88% 62%, rgba(0, 201, 199, 0.08), transparent 24%),
+                var(--ink);
+            color: var(--white);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        a:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+        .shell { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(5, 5, 9, 0.8);
+            backdrop-filter: blur(18px);
+        }
+        .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+        .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 850; letter-spacing: 0.02em; }
+        .brand img { width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(140, 91, 217, 0.35)); }
+        .nav { display: flex; align-items: center; gap: 27px; color: var(--muted); font-size: 14px; }
+        .nav a:hover { color: var(--white); }
+        .button {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 22px;
+            border: 1px solid rgba(0, 201, 199, 0.44);
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(140, 91, 217, 0.2), rgba(0, 201, 199, 0.12));
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24), 0 0 22px rgba(0, 201, 199, 0.08);
         }
 
-        html, body {
-            width: 100%;
-            min-height: 100%;
-            background: #050509;
+        .poster-hero {
+            min-height: min(88vh, 980px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 0 18px;
         }
+        .poster-frame { position: relative; width: min(100%, 1536px); margin-inline: auto; }
+        .poster-frame::before {
+            content: "";
+            position: absolute;
+            inset: 8% 12%;
+            z-index: -1;
+            background: rgba(112, 74, 218, 0.2);
+            filter: blur(70px);
+        }
+        .poster-frame img { display: block; width: 100%; height: auto; object-fit: contain; }
+        .scroll-cue { margin: 0 0 34px; text-align: center; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 
-       body {
-    min-height: 100vh;
-    background: #070817 url("docpets.png") center center / contain no-repeat;
-}
+        section { padding: 110px 0; }
+        .eyebrow { margin: 0 0 20px; color: var(--teal); font-size: 11px; font-weight: 900; letter-spacing: 0.24em; }
+        h2, h3, p { margin-top: 0; }
+        h2 { max-width: 900px; margin-bottom: 28px; font-size: clamp(42px, 6vw, 78px); line-height: 0.98; letter-spacing: -0.055em; }
+        .lead { max-width: 750px; margin-bottom: 0; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
+        .intro { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+        .difference { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: end; }
+        .difference-note { margin: 0; padding-left: 24px; border-left: 2px solid var(--violet); color: var(--muted); font-size: 17px; }
 
-       
+        .care-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 58px; }
+        .care-card {
+            min-height: 250px;
+            padding: 32px;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: linear-gradient(145deg, var(--panel), rgba(9, 10, 28, 0.72));
+            box-shadow: inset 0 1px rgba(255, 255, 255, 0.04), 0 28px 70px rgba(0, 0, 0, 0.22);
+        }
+        .care-number { display: block; margin-bottom: 52px; color: var(--violet); font-size: 11px; font-weight: 900; letter-spacing: 0.16em; }
+        .care-card h3 { margin-bottom: 14px; font-size: 23px; letter-spacing: -0.025em; }
+        .care-card p { margin-bottom: 0; color: var(--muted); font-size: 15px; }
+
+        .missing-pet {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            padding: 64px;
+            border: 1px solid rgba(140, 91, 217, 0.28);
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(31, 22, 76, 0.78), rgba(8, 16, 31, 0.72));
+        }
+        .missing-pet h2 { font-size: clamp(38px, 5vw, 66px); }
+        .missing-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+        .missing-list li { padding: 16px 18px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 15px; background: rgba(5, 5, 9, 0.3); color: var(--muted); }
+        .missing-list strong { color: var(--white); }
+
+        .voice-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 68px;
+            border: 1px solid rgba(0, 201, 199, 0.22);
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(32, 22, 79, 0.88), rgba(8, 22, 36, 0.8));
+        }
+        .voice-panel::after { content: ""; position: absolute; width: 300px; height: 300px; right: -100px; top: -120px; border-radius: 50%; background: rgba(0, 201, 199, 0.12); filter: blur(48px); }
+        .voice-panel > * { position: relative; z-index: 1; }
+        .voice-panel h2 { max-width: 760px; }
+        .voice-examples { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+        .voice-example { padding: 14px 18px; border: 1px solid rgba(140, 91, 217, 0.4); border-radius: 999px; background: rgba(5, 5, 9, 0.44); font-size: 14px; font-weight: 700; }
+        .voice-note { margin: 22px 0 0; color: var(--muted); font-size: 14px; }
+
+        .closing { text-align: center; }
+        .closing h2, .closing .lead { margin-inline: auto; }
+        .closing .button { margin-top: 34px; }
+
+        .site-footer { padding: 46px 0; border-top: 1px solid rgba(255, 255, 255, 0.07); color: var(--muted); font-size: 13px; }
+        .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .footer-copy { text-align: right; }
+        .footer-copy p { margin: 0; }
+
+        @media (max-width: 950px) {
+            section { padding: 82px 0; }
+            .difference, .missing-pet { grid-template-columns: 1fr; gap: 38px; }
+            .care-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .voice-panel, .missing-pet { padding: 46px; }
+        }
+        @media (max-width: 720px) {
+            .shell { width: min(calc(100% - 32px), var(--max)); }
+            .nav a:not(.button) { display: none; }
+            .poster-hero { min-height: auto; padding-top: 20px; }
+            .scroll-cue { margin-top: 12px; }
+            section { padding: 64px 0; }
+            .care-grid { grid-template-columns: 1fr; }
+            .care-card { min-height: 220px; }
+            .voice-panel, .missing-pet { padding: 34px 24px; }
+            .voice-examples { flex-direction: column; align-items: stretch; }
+            .voice-example { border-radius: 17px; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+            .footer-copy { text-align: left; }
+        }
+        @media (max-width: 420px) {
+            .header-inner { min-height: 68px; }
+            .brand img { width: 36px; height: 36px; }
+            .button { min-height: 42px; padding-inline: 17px; }
+            .care-card { padding: 28px; }
+            .care-number { margin-bottom: 42px; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
 </head>
-
 <body>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="#top" aria-label="DocPets home">
+                <img src="docpets-favicon.png" alt="">
+                <span>DocPets</span>
+            </a>
+            <nav class="nav" aria-label="Primary navigation">
+                <a href="#why">Why DocPets</a>
+                <a href="#care">Whole-life care</a>
+                <a href="#voice">Voice-ready</a>
+                <a class="button" href="#updates">Coming soon</a>
+            </nav>
+        </div>
+    </header>
 
-    
+    <main id="top">
+        <section class="poster-hero" aria-label="DocPets announcement">
+            <div class="poster-frame">
+                <img src="docpets.png" alt="DocPets — Their whole life. One place. Coming soon, a Doc Incorporated product.">
+            </div>
+        </section>
+        <p class="scroll-cue">Meet a better home for their whole life ↓</p>
 
+        <section class="intro" id="why">
+            <div class="shell difference">
+                <div>
+                    <p class="eyebrow">THEIR WHOLE LIFE. ONE PLACE.</p>
+                    <h2>More than records. A home for every pet's life.</h2>
+                </div>
+                <p class="difference-note">Pet care is spread across paperwork, photo rolls, calendars, clinic portals, and memory. DocPets is being built to bring the identity, care, history, and everyday details of every pet in your family into one calm place.</p>
+            </div>
+        </section>
+
+        <section id="care">
+            <div class="shell">
+                <p class="eyebrow">ONE FAMILY. EVERY PET.</p>
+                <h2>Everything that helps you care for them.</h2>
+                <p class="lead">Give each pet a complete identity and keep the information you reach for most—organized around real life, not scattered across apps.</p>
+                <div class="care-grid">
+                    <article class="care-card"><span class="care-number">01</span><h3>Identity &amp; profile</h3><p>Keep names, photos, birthdays, breeds, microchips, licenses, and the details that make each pet unmistakably theirs.</p></article>
+                    <article class="care-card"><span class="care-number">02</span><h3>Health &amp; vaccines</h3><p>Bring vaccination history, allergies, health records, and important veterinary notes into one reliable timeline.</p></article>
+                    <article class="care-card"><span class="care-number">03</span><h3>Medications</h3><p>Track medications, schedules, refill timing, and the reminders that help daily care stay on course.</p></article>
+                    <article class="care-card"><span class="care-number">04</span><h3>Vets &amp; appointments</h3><p>Keep clinic information, care contacts, appointment details, and upcoming visits ready when you need them.</p></article>
+                    <article class="care-card"><span class="care-number">05</span><h3>Schedules &amp; reminders</h3><p>Organize routines, recurring care, important dates, and practical reminders across multiple pets.</p></article>
+                    <article class="care-card"><span class="care-number">06</span><h3>Documents &amp; memories</h3><p>Hold documents, photos, licenses, records, and the moments that turn a care history into their whole story.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="shell missing-pet">
+                <div>
+                    <p class="eyebrow">READY WHEN IT MATTERS</p>
+                    <h2>Their information can do more than sit in a file.</h2>
+                    <p class="lead">DocPets is planned to turn stored identity, contact, and photo information into something useful—like a missing-pet poster and shareable PDF when every minute matters.</p>
+                </div>
+                <ul class="missing-list">
+                    <li><strong>Built from their profile</strong><br>Use trusted information already kept with the pet.</li>
+                    <li><strong>Made to move quickly</strong><br>Create a clear poster without rebuilding details under stress.</li>
+                    <li><strong>Part of the bigger picture</strong><br>Practical tools shaped around the real moments pet owners face.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="voice">
+            <div class="shell voice-panel">
+                <p class="eyebrow">VOICE → PET CARE</p>
+                <h2>Less navigating. More caring.</h2>
+                <p class="lead">DocPets is being built toward natural, assistant-ready interaction. The current iOS proof of concept is testing how owners could ask for pet information instead of searching through screens.</p>
+                <div class="voice-examples" aria-label="Examples of planned voice interactions">
+                    <div class="voice-example">“Show me Pluto's vaccination records.”</div>
+                    <div class="voice-example">“When is Bella's next medication?”</div>
+                    <div class="voice-example">“Show Max's vet information.”</div>
+                </div>
+                <p class="voice-note">A direction under active development for Siri—and designed with Gemini, ChatGPT, and future assistants in mind. Voice and AI features are not yet presented as released functionality.</p>
+            </div>
+        </section>
+
+        <section class="closing" id="updates">
+            <div class="shell">
+                <p class="eyebrow">COMING SOON</p>
+                <h2>A better home for their whole life.</h2>
+                <p class="lead">DocPets is coming soon. Follow along as we build a warmer, simpler way to care for every pet in your family.</p>
+                <a class="button" href="https://docincorporated.com">Visit Doc Incorporated</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <div class="brand"><img src="docpets-favicon.png" alt=""><span>DocPets</span></div>
+            <div class="footer-copy"><p>Their whole life. One place.</p><p>A Doc Incorporated product. © 2026</p></div>
+        </div>
+    </footer>
 </body>
 </html>
