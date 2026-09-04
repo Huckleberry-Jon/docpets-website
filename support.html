@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./docpets-favicon.png?v=4">
+    <link rel="canonical" href="https://getdocpets.com/support.html">
+    <meta name="theme-color" content="#070817">
+    <meta name="description" content="Get help with DocPets, including pet profiles, health records, documents, sharing, and account questions.">
+    <title>DocPets Support</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --white: #f8f8ff;
+            --muted: #aaa8c8;
+            --violet: #9a68e8;
+            --teal: #00c9c7;
+            --panel: rgba(17, 13, 48, 0.84);
+        }
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(122, 72, 218, 0.25), transparent 35%),
+                radial-gradient(circle at 85% 72%, rgba(0, 201, 199, 0.15), transparent 30%),
+                linear-gradient(180deg, #10092d, #09051e);
+            color: var(--white);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+        }
+        a { color: inherit; }
+        a:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+        .shell { width: min(calc(100% - 40px), 900px); margin-inline: auto; }
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(4, 3, 14, 0.88);
+        }
+        .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 850; }
+        .brand img { width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(140, 91, 217, 0.4)); }
+        .back { color: var(--muted); font-size: 14px; font-weight: 700; text-decoration: none; }
+        .back:hover { color: var(--white); }
+        main { padding: 90px 0 110px; }
+        .eyebrow { margin: 0 0 16px; color: var(--teal); font-size: 12px; font-weight: 900; letter-spacing: 0.2em; }
+        h1 { max-width: 720px; margin: 0 0 24px; font-size: clamp(44px, 8vw, 76px); line-height: 1; letter-spacing: -0.055em; }
+        .lead { max-width: 720px; margin: 0 0 48px; color: var(--muted); font-size: 19px; }
+        .support-card {
+            padding: clamp(28px, 5vw, 48px);
+            border: 1px solid rgba(157, 112, 226, 0.32);
+            border-radius: 28px;
+            background: linear-gradient(145deg, var(--panel), rgba(8, 16, 39, 0.88));
+            box-shadow: 0 30px 90px rgba(3, 2, 18, 0.35), 0 0 42px rgba(140, 91, 217, 0.1);
+        }
+        .support-card h2 { margin: 0 0 12px; font-size: 27px; }
+        .support-card p { margin: 0 0 26px; color: var(--muted); }
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            border: 1px solid rgba(0, 201, 199, 0.5);
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(140, 91, 217, 0.28), rgba(0, 201, 199, 0.15));
+            color: var(--white);
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .button:hover { box-shadow: 0 0 24px rgba(0, 201, 199, 0.14); }
+        .details { display: grid; gap: 18px; margin-top: 38px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+        .details h3 { margin: 0 0 4px; font-size: 17px; }
+        .details p { margin: 0; font-size: 15px; }
+        footer { padding: 34px 0; border-top: 1px solid rgba(255, 255, 255, 0.07); background: #04030e; color: var(--muted); font-size: 13px; }
+        @media (max-width: 600px) {
+            .header-inner { min-height: 68px; }
+            .brand img { width: 36px; height: 36px; }
+            main { padding: 64px 0 80px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="shell header-inner">
+            <a class="brand" href="index.html" aria-label="DocPets home">
+                <img src="docpets-favicon.png" alt="">
+                <span>DocPets</span>
+            </a>
+            <a class="back" href="index.html">← Back to DocPets</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="shell">
+            <p class="eyebrow">DOCPETS SUPPORT</p>
+            <h1>How can we help?</h1>
+            <p class="lead">Questions about DocPets, your pet information, or using the app? Send us a message and include enough detail for us to understand what happened.</p>
+
+            <section class="support-card" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact support</h2>
+                <p>Email the DocPets support team. Please do not include passwords, payment information, or highly sensitive personal information.</p>
+                <a class="button" href="mailto:support@getdocpets.com?subject=DocPets%20Support">Email support@getdocpets.com</a>
+
+                <div class="details">
+                    <div>
+                        <h3>For technical problems</h3>
+                        <p>Tell us your device model, software version, and the steps that led to the problem.</p>
+                    </div>
+                    <div>
+                        <h3>For subscription questions</h3>
+                        <p>Include a description of the issue, but never send complete payment-card information.</p>
+                    </div>
+                    <div>
+                        <h3>For privacy or account requests</h3>
+                        <p>Use the same support address and tell us that your message concerns privacy or account data.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="shell">DocPets · A Doc Incorporated product. © 2026</div>
+    </footer>
+</body>
+</html>
